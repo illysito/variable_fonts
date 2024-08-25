@@ -2,6 +2,9 @@ import { gsap } from 'gsap'
 
 import './styles/style.css'
 
+let VARIATION = 0
+let WGHT = 0
+
 function Font(name, axes, axes_bounds, indexes) {
   this.name = name
   this.axes = axes
@@ -153,6 +156,15 @@ document.addEventListener('mouseup', () => {
   // console.log(isDragging)
 })
 
+if (currentFont) {
+  WGHT = currentFont.axes_bounds[0][0]
+  if (currentFont.axes_bounds[1]) {
+    VARIATION = currentFont.axes_bounds[1][0]
+  } else {
+    VARIATION = 0
+  }
+}
+
 document.addEventListener('mousemove', (e) => {
   // si estoy pulsando y existe el slider y el handler:
   if (isDragging && currentHandle && currentSlider) {
@@ -175,15 +187,6 @@ document.addEventListener('mousemove', (e) => {
     console.log(
       'axis bound max: ' + currentFont.axes_bounds[currentAxisIndex][1]
     )
-
-    let WGHT = currentFont.axes_bounds[0][0]
-    let VARIATION = 0
-    if (currentFont.axes_bounds[1]) {
-      VARIATION = currentFont.axes_bounds[1][0]
-    } else {
-      VARIATION = 0
-    }
-
     // YA TENGO LA POSICIÖN DEL ROLLO ARRIBA. AHORA TENGO QUE IDENTIFICAR QUE SLIDER ES; COLOCAR BIEN EL MAPA Y HACERLE GSAP AL QUE CORRESPONDA
     // WGHT = Math.floor(gsap.utils.mapRange(0, sliderRect.width, 0, 500, x))
     if (currentAxisIndex === 0) {
