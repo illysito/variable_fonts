@@ -1,10 +1,12 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import SplitType from 'split-type'
 
 gsap.registerPlugin(ScrollTrigger)
 
 import changeColor from './features/changeFontColor'
-import heroFont from './features/heroFont'
+import changeWidth from './features/changeFontWidth'
+// import heroFont from './features/heroFont'
 
 import './styles/style.css'
 
@@ -117,7 +119,7 @@ const work_sans = new Font('.work-sans', ['wght'], [[199, 900]], [37])
 
 // VARIABLES GLOBALES
 let t = 0
-let speed = 0.015
+let speed = 0.025
 let amplitude = 100
 // let blue = '#00f'
 // let pinky = '#ffbbd5'
@@ -319,9 +321,18 @@ document.addEventListener('mousemove', (e) => {
 })
 
 changeColor('#0a0a0a')
+
+const hero_font = document.querySelector('.hero-heading-3')
+let hero_array = new SplitType(hero_font, { types: 'chars' }).chars
+gsap.set(hero_font, {
+  fontWeight: 63.6,
+})
+
 function hero() {
-  heroFont(t, speed, amplitude)
+  // heroFont(t, speed, amplitude)
+  changeWidth(t, speed, amplitude, hero_array)
   t++
+  // requestAnimationFrame(hero)
   requestAnimationFrame(hero)
 }
 requestAnimationFrame(hero)
