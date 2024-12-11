@@ -5,7 +5,8 @@ import SplitType from 'split-type'
 gsap.registerPlugin(ScrollTrigger)
 
 import changeColor from './features/changeFontColor'
-import changeWidth from './features/changeFontWidth'
+import changeJazz from './features/changeFontJazz'
+// import changeWidth from './features/changeFontWidth'
 // import heroFont from './features/heroFont'
 
 import './styles/style.css'
@@ -119,7 +120,8 @@ const work_sans = new Font('.work-sans', ['wght'], [[199, 900]], [37])
 
 // VARIABLES GLOBALES
 let t = 0
-let speed = 0.025
+// let t_2 = 0
+let speed = 0.01
 let amplitude = 100
 // let blue = '#00f'
 // let pinky = '#ffbbd5'
@@ -330,7 +332,7 @@ gsap.set(hero_font, {
 
 function hero() {
   // heroFont(t, speed, amplitude)
-  changeWidth(t, speed, amplitude, hero_array)
+  changeJazz(t, speed, amplitude, hero_array)
   t++
   // requestAnimationFrame(hero)
   requestAnimationFrame(hero)
