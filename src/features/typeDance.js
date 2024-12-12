@@ -1,6 +1,6 @@
 import { gsap } from 'gsap'
 
-function changeJazz(counter, speed, amplitude, hero_array) {
+function typeDance(counter, speed, amplitude, hero_array) {
   const totalWidth = 100 * 4
   const steepness = 20
   speed *= 2
@@ -91,4 +91,4 @@ function changeJazz(counter, speed, amplitude, hero_array) {
   })
 }
 
-export default changeJazz
+export default typeDance
