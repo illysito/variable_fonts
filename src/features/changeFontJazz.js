@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 function changeJazz(counter, speed, amplitude, hero_array) {
   const totalWidth = 117.7 * 4
   const steepness = 2
+  speed *= 3
 
   // prettier-ignore
   let F_WDTH_RATE = Math.sin(counter * speed) ** steepness * -amplitude
